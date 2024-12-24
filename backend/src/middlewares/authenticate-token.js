@@ -3,8 +3,8 @@ const { ApiError } = require("../utils");
 const { env } = require("../config");
 
 const authenticateToken = (req, res, next) => {
-  const accessToken = req.cookies.accessToken;
-  const refreshToken = req.cookies.refreshToken;
+  const { accessToken } = req.cookies;
+  const { refreshToken } = req.cookies;
 
   if (!accessToken || !refreshToken) {
     throw new ApiError(401, "Unauthorized. Please provide valid tokens.");

@@ -13,7 +13,7 @@ const { handleGetAllTeachers } = require("../modules/class-teacher/class-teacher
 const { staffsRoutes } = require("../modules/staffs/staffs-router.js");
 const { accountRoutes } = require("../modules/account/account-router.js");
 const { sectionRoutes } = require("../modules/sections/section-router.js");
-// const { departmentRoutes } = require("../modules/departments/department-router.js");
+const { departmentRoutes } = require("../modules/departments/department-router.js");
 const { handleGetDashboardData } = require("../modules/dashboard/dashboard-controller.js");
 const { accessControlRoutes } = require("../modules/access-control/access-control-router.js");
 
@@ -29,7 +29,7 @@ router.use("/sections", authenticateToken, csrfProtection, sectionRoutes);
 router.use("/students", authenticateToken, csrfProtection, studentsRoutes);
 router.use("/notices", authenticateToken, csrfProtection, noticesRoutes);
 router.use("/staffs", authenticateToken, csrfProtection, staffsRoutes);
-// router.use("/departments", authenticateToken, csrfProtection, departmentRoutes);
+router.use("/departments", authenticateToken, csrfProtection, departmentRoutes);
 router.use("/roles", authenticateToken, csrfProtection, rpRoutes);
 router.use(handle404Error);
 
